@@ -22,9 +22,52 @@ import javax.persistence.Table;
 public class Subject implements Serializable{
     private int idSubject;
     private UserProfile uerProfiles;
+    private int punteo;
     
     public Subject() {
     }
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    /**
+     * @return the idSubject
+     */
+    public int getIdSubject() {
+        return idSubject;
+    }
+
+    /**
+     * @param idSubject the idSubject to set
+     */
+    public void setIdSubject(int idSubject) {
+        this.idSubject = idSubject;
+    }
+
+    /**
+     * @return the uerProfiles
+     */
+    public UserProfile getUerProfiles() {
+        return uerProfiles;
+    }
+
+    /**
+     * @param uerProfiles the uerProfiles to set
+     */
+    public void setUerProfiles(UserProfile uerProfiles) {
+        this.uerProfiles = uerProfiles;
+    }
+
+    /**
+     * @return the punteo
+     */
+    public int getPunteo() {
+        return punteo;
+    }
+
+    /**
+     * @param punteo the punteo to set
+     */
+    public void setPunteo(int punteo) {
+        this.punteo = punteo;
+    }
 }
