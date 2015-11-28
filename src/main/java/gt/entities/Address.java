@@ -25,7 +25,7 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "ADDRESS")
 public class Address implements java.io.Serializable {
 
-    private int idAddress;
+    private Long idAddress;
     private City city;
     private String txtNumberHouse;
     private String txtColony;
@@ -35,18 +35,18 @@ public class Address implements java.io.Serializable {
     public Address() {
     }
 
-    public Address(int idAddress) {
+    public Address(Long idAddress) {
         this.idAddress = idAddress;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idAddress", unique = true, nullable = false)
-    public int getIdAddress() {
+    public Long getIdAddress() {
         return idAddress;
     }
 
-    public void setIdAddress(int idAddress) {
+    public void setIdAddress(Long idAddress) {
         this.idAddress = idAddress;
     }
 

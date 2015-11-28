@@ -27,7 +27,7 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "USER_PROFILE")
 public class UserProfile implements Serializable {
 
-    private int idUserProfile;
+    private Long idUserProfile;
     private Profile profile;
     private User user;
     private School school;
@@ -35,11 +35,11 @@ public class UserProfile implements Serializable {
     public UserProfile() {
     }
 
-    public UserProfile(int idUserProfile) {
+    public UserProfile(Long idUserProfile) {
         this.idUserProfile = idUserProfile;
     }
 
-    public UserProfile(int idUserProfile, Profile profile, User user, School school) {
+    public UserProfile(Long idUserProfile, Profile profile, User user, School school) {
         this.idUserProfile = idUserProfile;
         this.profile = profile;
         this.user = user;
@@ -49,11 +49,11 @@ public class UserProfile implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idUserProfile", unique = true, nullable = false)
-    public int getIdUserProfile() {
+    public Long getIdUserProfile() {
         return idUserProfile;
     }
 
-    public void setIdUserProfile(int idUserProfile) {
+    public void setIdUserProfile(Long idUserProfile) {
         this.idUserProfile = idUserProfile;
     }
 

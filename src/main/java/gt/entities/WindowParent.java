@@ -25,29 +25,29 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "WINDOW_PARENT")
 public class WindowParent {
 
-    private int idWindoParent;
+    private Long idWindoParent;
     private Window parent;
 
     public WindowParent() {
     }
 
-    public WindowParent(int idWindoParent, Window windowParent) {
+    public WindowParent(Long idWindoParent, Window windowParent) {
         this.idWindoParent = idWindoParent;
         this.parent = windowParent;
     }
 
-    public WindowParent(int idWindoParent) {
+    public WindowParent(Long idWindoParent) {
         this.idWindoParent = idWindoParent;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idWindowParent", unique = true, nullable = false)
-    public int getIdWindoParent() {
+    public Long getIdWindoParent() {
         return idWindoParent;
     }
 
-    public void setIdWindoParent(int idWindoParent) {
+    public void setIdWindoParent(Long idWindoParent) {
         this.idWindoParent = idWindoParent;
     }
 

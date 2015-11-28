@@ -21,24 +21,24 @@ import javax.persistence.Table;
 @Table(name = "PHONE")
 public class Phone implements Serializable {
 
-    private int idPhone;
+    private Long idPhone;
     private String txtPhone;
 
     public Phone() {
     }
 
-    public Phone(int idPhone) {
+    public Phone(Long idPhone) {
         this.idPhone = idPhone;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idPhone", unique = true, nullable = false)
-    public int getIdPhone() {
+    public Long getIdPhone() {
         return idPhone;
     }
 
-    public void setIdPhone(int idPhone) {
+    public void setIdPhone(Long idPhone) {
         this.idPhone = idPhone;
     }
 

@@ -24,18 +24,18 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "PROFILE_WINDOW")
 public class ProfileWindow {
 
-    private int idProfileWindow;
+    private Long idProfileWindow;
     private Profile profile;
     private Window window;
 
-    public ProfileWindow(int idProfileWindow) {
+    public ProfileWindow(Long idProfileWindow) {
         this.idProfileWindow = idProfileWindow;
     }
 
     public ProfileWindow() {
     }
 
-    public ProfileWindow(int idProfileWindow, Profile profile) {
+    public ProfileWindow(Long idProfileWindow, Profile profile) {
         this.idProfileWindow = idProfileWindow;
         this.profile = profile;
     }
@@ -43,11 +43,11 @@ public class ProfileWindow {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idProfileWindow", unique = true, nullable = false)
-    public int getIdProfileWindow() {
+    public Long getIdProfileWindow() {
         return idProfileWindow;
     }
 
-    public void setIdProfileWindow(int idProfileWindow) {
+    public void setIdProfileWindow(Long idProfileWindow) {
         this.idProfileWindow = idProfileWindow;
     }
 

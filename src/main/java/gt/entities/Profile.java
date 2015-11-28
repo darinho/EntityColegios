@@ -21,25 +21,25 @@ import javax.persistence.Table;
 @Table(name = "PROFILE")
 public class Profile implements Serializable {
 
-    private int idProfile;
+    private Long idProfile;
     private String txtDescription;
     private Boolean snActive;
 
     public Profile() {
     }
 
-    public Profile(int idProfile) {
+    public Profile(Long idProfile) {
         this.idProfile = idProfile;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idProfile", unique = true, nullable = false)
-    public int getIdProfile() {
+    public Long getIdProfile() {
         return idProfile;
     }
 
-    public void setIdProfile(int idProfile) {
+    public void setIdProfile(Long idProfile) {
         this.idProfile = idProfile;
     }
 

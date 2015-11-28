@@ -24,7 +24,7 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "WINDOW")
 public class Window {
 
-    private int idWindow;
+    private Long idWindow;
     private String txtNameEsp;
     private String txtNameEng;
     private String txtLink;
@@ -34,17 +34,17 @@ public class Window {
     public Window() {
     }
 
-    public Window(int idWindow) {
+    public Window(Long idWindow) {
         this.idWindow = idWindow;
     }
 
-    public Window(int idWindow, String txtWindowEsp, String txtWindowEng) {
+    public Window(Long idWindow, String txtWindowEsp, String txtWindowEng) {
         this.idWindow = idWindow;
         this.txtNameEsp = txtWindowEsp;
         this.txtNameEng = txtWindowEng;
     }
 
-    public Window(int idWindow, String txtNameEsp, String txtNameEng, String txtLink, String txtStatesCode) {
+    public Window(Long idWindow, String txtNameEsp, String txtNameEng, String txtLink, String txtStatesCode) {
         this.idWindow = idWindow;
         this.txtNameEsp = txtNameEsp;
         this.txtNameEng = txtNameEng;
@@ -55,11 +55,11 @@ public class Window {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idWindow", unique = true, nullable = false)
-    public int getIdWindow() {
+    public Long getIdWindow() {
         return idWindow;
     }
 
-    public void setIdWindow(int idWindow) {
+    public void setIdWindow(Long idWindow) {
         this.idWindow = idWindow;
     }
 

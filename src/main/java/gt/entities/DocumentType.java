@@ -20,24 +20,24 @@ import javax.persistence.Table;
 @Table(name = "DOCUMENT_TYPE")
 public class DocumentType {
 
-    private int idDocumentType;
+    private Long idDocumentType;
     private String txtName;
 
     public DocumentType() {
     }
 
-    public DocumentType(int idDocumentType) {
+    public DocumentType(Long idDocumentType) {
         this.idDocumentType = idDocumentType;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idDocumentType", unique = true, nullable = false)
-    public int getIdDocumentType() {
+    public Long getIdDocumentType() {
         return idDocumentType;
     }
 
-    public void setIdDocumentType(int idDocumentType) {
+    public void setIdDocumentType(Long idDocumentType) {
         this.idDocumentType = idDocumentType;
     }
 

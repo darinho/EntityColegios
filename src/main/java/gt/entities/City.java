@@ -24,25 +24,25 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "CITY")
 public class City implements java.io.Serializable {
 
-    private int idCity;
+    private Long idCity;
     private String txtName;
     private State state;
 
     public City() {
     }
 
-    public City(int idCity) {
+    public City(Long idCity) {
         this.idCity = idCity;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idCity", unique = true, nullable = false)
-    public int getIdCity() {
+    public Long getIdCity() {
         return idCity;
     }
 
-    public void setIdCity(int idCity) {
+    public void setIdCity(Long idCity) {
         this.idCity = idCity;
     }
 

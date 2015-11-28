@@ -26,7 +26,7 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "PERSON")
 public class Person implements java.io.Serializable {
 
-    private int idPerson;
+    private Long idPerson;
     private String txtFullName;
     private String txtFirstNameF;
     private String txtFirstNameS;
@@ -40,18 +40,18 @@ public class Person implements java.io.Serializable {
     public Person() {
     }
 
-    public Person(int idPerson) {
+    public Person(Long idPerson) {
         this.idPerson = idPerson;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "idPerson", unique = true, nullable = false)
-    public int getIdPerson() {
+    public Long getIdPerson() {
         return idPerson;
     }
 
-    public void setIdPerson(int idPerson) {
+    public void setIdPerson(Long idPerson) {
         this.idPerson = idPerson;
     }
 

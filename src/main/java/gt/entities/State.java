@@ -28,7 +28,7 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "STATE")
 public class State implements java.io.Serializable {
 
-    private int idState;
+    private Long idState;
     private String txtName;
     private Country country;
     private List<City> cities = new ArrayList<>();
@@ -36,18 +36,18 @@ public class State implements java.io.Serializable {
     public State() {
     }
 
-    public State(int idState) {
+    public State(Long idState) {
         this.idState = idState;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idState", unique = true, nullable = false)
-    public int getIdState() {
+    public Long getIdState() {
         return idState;
     }
 
-    public void setIdState(int idState) {
+    public void setIdState(Long idState) {
         this.idState = idState;
     }
 

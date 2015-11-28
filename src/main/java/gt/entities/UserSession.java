@@ -26,7 +26,7 @@ import javax.persistence.Temporal;
 @Table(name = "USER_SESSION")
 public class UserSession implements Serializable {
 
-    private int idUserSession;
+    private Long idUserSession;
     private User user;
     private int idUser;
     private String token;
@@ -36,16 +36,16 @@ public class UserSession implements Serializable {
     public UserSession() {
     }
 
-    public UserSession(int idUserSession) {
+    public UserSession(Long idUserSession) {
         this.idUserSession = idUserSession;
     }
 
-    public UserSession(int idUserSession, User user) {
+    public UserSession(Long idUserSession, User user) {
         this.idUserSession = idUserSession;
         this.user = user;
     }
 
-    public UserSession(int idUserSession, User user, String token, Date startDate, Date endDate) {
+    public UserSession(Long idUserSession, User user, String token, Date startDate, Date endDate) {
         this.idUserSession = idUserSession;
         this.user = user;
         this.token = token;
@@ -56,11 +56,11 @@ public class UserSession implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idUserSession", unique = true)
-    public int getIdUserSession() {
+    public Long getIdUserSession() {
         return idUserSession;
     }
 
-    public void setIdUserSession(int idUserSession) {
+    public void setIdUserSession(Long idUserSession) {
         this.idUserSession = idUserSession;
     }
 

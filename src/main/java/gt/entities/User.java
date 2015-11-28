@@ -29,7 +29,7 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "USUARIO")
 public class User implements Serializable {
 
-    private int idUser;
+    private Long idUser;
     private Person person;
     private List<UserProfile> userProfiles;
     private String txtPwd;
@@ -42,18 +42,18 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(int idUser) {
+    public User(Long idUser) {
         this.idUser = idUser;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idUser", unique = true, nullable = false)
-    public int getIdUser() {
+    public Long getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(Long idUser) {
         this.idUser = idUser;
     }
 

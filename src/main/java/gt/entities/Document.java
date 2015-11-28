@@ -24,7 +24,7 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "DOCUMENT")
 public class Document {
 
-    private int idDocument;
+    private Long idDocument;
     private DocumentType documentType;
     private Person person;
     private String txtDocument;
@@ -32,18 +32,18 @@ public class Document {
     public Document() {
     }
 
-    public Document(int idDocument) {
+    public Document(Long idDocument) {
         this.idDocument = idDocument;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idDocument", unique = true, nullable = false)
-    public int getIdDocument() {
+    public Long getIdDocument() {
         return idDocument;
     }
 
-    public void setIdDocument(int idDocument) {
+    public void setIdDocument(Long idDocument) {
         this.idDocument = idDocument;
     }
 

@@ -28,7 +28,7 @@ import org.hibernate.annotations.CascadeType;
 @Table(name = "SCHOOL")
 public class School implements Serializable {
 
-    private int idSchool;
+    private Long idSchool;
     private String txtName;
     private Long nit;
     private Address address;
@@ -38,18 +38,18 @@ public class School implements Serializable {
     public School() {
     }
 
-    public School(int idSchool) {
+    public School(Long idSchool) {
         this.idSchool = idSchool;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idSchool", unique = true, nullable = false)
-    public int getIdSchool() {
+    public Long getIdSchool() {
         return idSchool;
     }
 
-    public void setIdSchool(int idSchool) {
+    public void setIdSchool(Long idSchool) {
         this.idSchool = idSchool;
     }
 
