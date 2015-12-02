@@ -28,6 +28,7 @@ public class Document {
     private DocumentType documentType;
     private Person person;
     private String txtDocument;
+    private boolean snActive;
 
     public Document() {
     }
@@ -78,4 +79,12 @@ public class Document {
         this.txtDocument = txtDocument;
     }
 
+    @Column(name = "snActive")
+    public boolean isSnActive() {
+        return snActive;
+    }
+
+    public void setSnActive(boolean snActive) {
+        this.snActive = snActive;
+    }
 }

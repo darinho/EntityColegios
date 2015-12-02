@@ -3,32 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gt.entities.subject;
+package gt.entities;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
  *
- * @author Dario Calderon
+ * @author dario.calderon
  */
 @Entity
-@Table(name = "SUBJECT")
-public class Subject implements Serializable {
+@Table(name = "LICENCE_TYPE")
+public class LicenceType {
 
     private long id;
     private String txtDescription;
-    private Degree degree;
     private boolean snActive;
 
-    public Subject() {
+    public LicenceType() {
+    }
+
+    public LicenceType(long id) {
+        this.id = id;
+    }
+
+    public LicenceType(long id, String txtDescription) {
+        this.id = id;
+        this.txtDescription = txtDescription;
     }
 
     @Id
@@ -42,23 +47,12 @@ public class Subject implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "txtDescription")
     public String getTxtDescription() {
         return txtDescription;
     }
 
     public void setTxtDescription(String txtDescription) {
         this.txtDescription = txtDescription;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "idDegree", nullable = false)
-    public Degree getDegree() {
-        return degree;
-    }
-
-    public void setDegree(Degree degree) {
-        this.degree = degree;
     }
 
     @Column(name = "snActive")
@@ -69,4 +63,5 @@ public class Subject implements Serializable {
     public void setSnActive(boolean snActive) {
         this.snActive = snActive;
     }
+
 }

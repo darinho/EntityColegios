@@ -36,6 +36,7 @@ public class Person implements java.io.Serializable {
     private String txtLastNameT;
     private Address address;
     private List<Document> documents;
+    private boolean snActive;
 
     public Person() {
     }
@@ -138,4 +139,12 @@ public class Person implements java.io.Serializable {
         this.documents = documents;
     }
 
+    @Column(name = "snActive")
+    public boolean isSnActive() {
+        return snActive;
+    }
+
+    public void setSnActive(boolean snActive) {
+        this.snActive = snActive;
+    }
 }

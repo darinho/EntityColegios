@@ -30,7 +30,8 @@ public class UserProfile implements Serializable {
     private Long idUserProfile;
     private Profile profile;
     private User user;
-    private School school;
+    private Licences licence;
+    private boolean snActive;
 
     public UserProfile() {
     }
@@ -39,11 +40,11 @@ public class UserProfile implements Serializable {
         this.idUserProfile = idUserProfile;
     }
 
-    public UserProfile(Long idUserProfile, Profile profile, User user, School school) {
+    public UserProfile(Long idUserProfile, Profile profile, User user, Licences school) {
         this.idUserProfile = idUserProfile;
         this.profile = profile;
         this.user = user;
-        this.school = school;
+        this.licence = school;
     }
 
     @Id
@@ -80,14 +81,22 @@ public class UserProfile implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "idSchool", referencedColumnName = "idSchool", nullable = false)
-    public School getSchool() {
-        return school;
+    @JoinColumn(name = "idLicence", nullable = false)
+    public Licences getLicence() {
+        return licence;
     }
 
-    public void setSchool(School school) {
-        this.school = school;
+    public void setLicence(Licences licence) {
+        this.licence = licence;
+    }
+
+    @Column(name = "snActive")
+    public boolean isSnActive() {
+        return snActive;
+    }
+
+    public void setSnActive(boolean snActive) {
+        this.snActive = snActive;
     }
 
 }
-

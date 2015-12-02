@@ -5,7 +5,6 @@
  */
 package gt.entities.subject;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,18 +16,28 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Dario Calderon
+ * @author dario.calderon
  */
 @Entity
-@Table(name = "SUBJECT")
-public class Subject implements Serializable {
+@Table(name = "SUBJECT_SECTION")
+public class SubjectSection {
 
     private long id;
-    private String txtDescription;
-    private Degree degree;
+    private Subject subject;
+    private Section section;
     private boolean snActive;
 
-    public Subject() {
+    public SubjectSection() {
+    }
+
+    public SubjectSection(long id) {
+        this.id = id;
+    }
+
+    public SubjectSection(long id, Subject subject, Section section) {
+        this.id = id;
+        this.subject = subject;
+        this.section = section;
     }
 
     @Id
@@ -42,23 +51,24 @@ public class Subject implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "txtDescription")
-    public String getTxtDescription() {
-        return txtDescription;
+    @ManyToOne
+    @JoinColumn(name = "idSubject", nullable = false)
+    public Subject getSubject() {
+        return subject;
     }
 
-    public void setTxtDescription(String txtDescription) {
-        this.txtDescription = txtDescription;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     @ManyToOne
-    @JoinColumn(name = "idDegree", nullable = false)
-    public Degree getDegree() {
-        return degree;
+    @JoinColumn(name = "idSection", nullable = false)
+    public Section getSection() {
+        return section;
     }
 
-    public void setDegree(Degree degree) {
-        this.degree = degree;
+    public void setSection(Section section) {
+        this.section = section;
     }
 
     @Column(name = "snActive")

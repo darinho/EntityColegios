@@ -5,6 +5,7 @@
  */
 package gt.entities.subject;
 
+import gt.entities.UserProfile;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,18 +18,22 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Dario Calderon
+ * @author dario.calderon
  */
 @Entity
-@Table(name = "SUBJECT")
-public class Subject implements Serializable {
+@Table(name = "SUBJECT_USER_PROFILE")
+public class SubectUserProfile implements Serializable {
 
     private long id;
-    private String txtDescription;
-    private Degree degree;
+    private SubjectSection subjectSection;
+    private UserProfile userProfile;
     private boolean snActive;
 
-    public Subject() {
+    public SubectUserProfile() {
+    }
+
+    public SubectUserProfile(long id) {
+        this.id = id;
     }
 
     @Id
@@ -42,23 +47,24 @@ public class Subject implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "txtDescription")
-    public String getTxtDescription() {
-        return txtDescription;
+    @ManyToOne
+    @JoinColumn(name = "idSubjectSection", nullable = false)
+    public SubjectSection getSubjectSection() {
+        return subjectSection;
     }
 
-    public void setTxtDescription(String txtDescription) {
-        this.txtDescription = txtDescription;
+    public void setSubjectSection(SubjectSection subjectSection) {
+        this.subjectSection = subjectSection;
     }
 
     @ManyToOne
-    @JoinColumn(name = "idDegree", nullable = false)
-    public Degree getDegree() {
-        return degree;
+    @JoinColumn(name = "idUserProfile", nullable = false)
+    public UserProfile getUserProfile() {
+        return userProfile;
     }
 
-    public void setDegree(Degree degree) {
-        this.degree = degree;
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
     }
 
     @Column(name = "snActive")
