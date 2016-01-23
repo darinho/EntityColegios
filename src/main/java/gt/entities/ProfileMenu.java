@@ -7,6 +7,7 @@ package gt.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,34 +22,35 @@ import org.hibernate.annotations.CascadeType;
  * @author dc
  */
 @Entity
-@Table(name = "PROFILE_WINDOW")
-public class ProfileWindow {
+@Table(name = "PROFILE_MENU")
+public class ProfileMenu implements java.io.Serializable {
 
-    private Long idProfileWindow;
+    private Long idProfileMenu;
     private Profile profile;
-    private Window window;
+    private Menu menu;
+    private boolean snActive;
 
-    public ProfileWindow(Long idProfileWindow) {
-        this.idProfileWindow = idProfileWindow;
+    public ProfileMenu(Long idProfileWindow) {
+        this.idProfileMenu = idProfileWindow;
     }
 
-    public ProfileWindow() {
+    public ProfileMenu() {
     }
 
-    public ProfileWindow(Long idProfileWindow, Profile profile) {
-        this.idProfileWindow = idProfileWindow;
+    public ProfileMenu(Long idProfileWindow, Profile profile) {
+        this.idProfileMenu = idProfileWindow;
         this.profile = profile;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idProfileWindow", unique = true, nullable = false)
-    public Long getIdProfileWindow() {
-        return idProfileWindow;
+    @Column(name = "idProfileMenu", unique = true, nullable = false)
+    public Long getIdProfileMenu() {
+        return idProfileMenu;
     }
 
-    public void setIdProfileWindow(Long idProfileWindow) {
-        this.idProfileWindow = idProfileWindow;
+    public void setIdProfileMenu(Long idProfileMenu) {
+        this.idProfileMenu = idProfileMenu;
     }
 
     @ManyToOne
@@ -62,14 +64,24 @@ public class ProfileWindow {
         this.profile = profile;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "idWindow", referencedColumnName = "idWindow")
-    public Window getWindow() {
-        return window;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idMenu", referencedColumnName = "idMenu")
+    public Menu getMenu() {
+        return menu;
     }
 
-    public void setWindow(Window window) {
-        this.window = window;
+    public void setMenu(Menu menu) {
+        this.menu = menu;
     }
+    
+    @Column(name = "snActive")
+    public boolean isSnActive() {
+        return snActive;
+    }
+
+    public void setSnActive(boolean snActive) {
+        this.snActive = snActive;
+    }
+    
 
 }

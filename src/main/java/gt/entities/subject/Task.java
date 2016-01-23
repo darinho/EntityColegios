@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,53 +17,44 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author ELIUDNORIEGA
  */
 @Entity
-@Table(name = "TASK")
+@Table(name = "TASK", schema = "public")
 public class Task implements Serializable {
 
     private long id;
     private SubjectSection subjectSection;
-    private String txtSubject;
-    private Date dateStart;
-    private Date dateEnd;
-    private String txtContent;
-    private byte[] attach;
-    private boolean snActive;
+    private Date startDate;
+    private Date endDate;
+    private Unit unit;
+    private String title;
+    private String description;
 
     public Task() {
     }
-
+    
     public Task(long id) {
         this.id = id;
     }
-
-    public Task(long id, SubjectSection subjectSection, String txtSubject, Date dateStart, Date dateEnd, String txtContent) {
+    
+    public Task(long id, SubjectSection subjectSection, Date startDate, Date endDate, Unit unit, String title, String description) {
         this.id = id;
         this.subjectSection = subjectSection;
-        this.txtSubject = txtSubject;
-        this.dateStart = dateStart;
-        this.dateEnd = dateEnd;
-        this.txtContent = txtContent;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.unit = unit;
+        this.title = title;
+        this.description = description;
     }
-
-    public Task(long id, SubjectSection subjectSection, String txtSubject, Date dateStart, Date dateEnd, String txtContent, byte[] attach) {
-        this.id = id;
-        this.subjectSection = subjectSection;
-        this.txtSubject = txtSubject;
-        this.dateStart = dateStart;
-        this.dateEnd = dateEnd;
-        this.txtContent = txtContent;
-        this.attach = attach;
-    }
-
-    @Id
+    
+    @Id()
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", unique = true, nullable = false)
     public long getId() {
         return id;
     }
@@ -70,9 +62,9 @@ public class Task implements Serializable {
     public void setId(long id) {
         this.id = id;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "idSubjectSection", nullable = false)
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idSubjectSection", referencedColumnName = "id", nullable = false)
     public SubjectSection getSubjectSection() {
         return subjectSection;
     }
@@ -80,61 +72,53 @@ public class Task implements Serializable {
     public void setSubjectSection(SubjectSection subjectSection) {
         this.subjectSection = subjectSection;
     }
-
-    @Column(name = "txtSubject", nullable = false, length = 75)
-    public String getTxtSubject() {
-        return txtSubject;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "startDate")
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setTxtSubject(String txtSubject) {
-        this.txtSubject = txtSubject;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "endDate")
+    public Date getEndDate() {
+        return endDate;
     }
 
-    @Column(name = "dateStart")
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    public Date getDateStart() {
-        return dateStart;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idUnit", referencedColumnName = "id")
+    public Unit getUnit() {
+        return unit;
     }
 
-    public void setDateStart(Date dateStart) {
-        this.dateStart = dateStart;
+    public void setUnit(Unit unit) {
+        this.unit = unit;
+    }
+    
+    @Column(name = "title", length = 300)
+    public String getTitle() {
+        return title;
     }
 
-    @Column(name = "dateEnd")
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    public Date getDateEnd() {
-        return dateEnd;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    
+    @Column(name = "description", length = 1024)
+    public String getDescription() {
+        return description;
     }
 
-    public void setDateEnd(Date dateEnd) {
-        this.dateEnd = dateEnd;
+    public void setDescription(String description) {
+        this.description = description;
     }
-
-    @Column(name = "txtContent", nullable = false, length = Integer.MAX_VALUE)
-    public String getTxtContent() {
-        return txtContent;
-    }
-
-    public void setTxtContent(String txtContent) {
-        this.txtContent = txtContent;
-    }
-
-    @Column(name = "attach")
-    public byte[] getAttach() {
-        return attach;
-    }
-
-    public void setAttach(byte[] attach) {
-        this.attach = attach;
-    }
-
-    @Column(name = "snActive")
-    public boolean isSnActive() {
-        return snActive;
-    }
-
-    public void setSnActive(boolean snActive) {
-        this.snActive = snActive;
-    }
-
+    
 }

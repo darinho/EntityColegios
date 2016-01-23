@@ -22,17 +22,17 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "SUBJECT_USER_PROFILE")
-public class SubectUserProfile implements Serializable {
+public class SubjectUserProfile implements Serializable {
 
     private long id;
     private SubjectSection subjectSection;
     private UserProfile userProfile;
     private boolean snActive;
 
-    public SubectUserProfile() {
+    public SubjectUserProfile() {
     }
 
-    public SubectUserProfile(long id) {
+    public SubjectUserProfile(long id) {
         this.id = id;
     }
 

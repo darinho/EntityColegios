@@ -5,11 +5,15 @@
  */
 package gt.entities.subject;
 
+import gt.entities.SchoolYear;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -23,7 +27,8 @@ public class Degree {
     private Long id;
     private String txtDescription;
     private boolean snActive;
-
+    private SchoolYear schoolYear;
+    
     public Degree() {
     }
 
@@ -31,11 +36,13 @@ public class Degree {
         this.id = id;
     }
 
-    public Degree(Long id, String txtDescription) {
+    public Degree(Long id, String txtDescription, boolean snActive, SchoolYear schoolYear) {
         this.id = id;
         this.txtDescription = txtDescription;
+        this.snActive = snActive;
+        this.schoolYear = schoolYear;
     }
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true, nullable = false)
@@ -64,5 +71,15 @@ public class Degree {
     public void setSnActive(boolean snActive) {
         this.snActive = snActive;
     }
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idSchooYear", referencedColumnName = "idSchoolYear")
+    public SchoolYear getSchoolYear() {
+        return schoolYear;
+    }
 
+    public void setSchoolYear(SchoolYear schoolYear) {
+        this.schoolYear = schoolYear;
+    }
+    
 }
