@@ -73,7 +73,7 @@ public class Degree {
     }
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idSchooYear", referencedColumnName = "idSchoolYear")
+    @JoinColumn(name = "idSchooYear", referencedColumnName = "id")
     public SchoolYear getSchoolYear() {
         return schoolYear;
     }

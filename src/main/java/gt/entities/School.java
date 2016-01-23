@@ -30,7 +30,7 @@ public class School implements Serializable {
 
     private Long idSchool;
     private String txtName;
-    private Long nit;
+    private String nit;
     private Address address;
     private Boolean snActive;
     //private List<Phone> phones = new ArrayList<>();
@@ -53,12 +53,12 @@ public class School implements Serializable {
         this.idSchool = idSchool;
     }
 
-    @Column(name = "lnNit", nullable = false, unique = true)
-    public Long getNit() {
+    @Column(name = "txtNit", nullable = false, unique = true)
+    public String getNit() {
         return nit;
     }
 
-    public void setNit(Long nit) {
+    public void setNit(String nit) {
         this.nit = nit;
     }
 
