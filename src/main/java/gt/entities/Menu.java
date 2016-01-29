@@ -10,31 +10,40 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 /**
  *
  * @author dc
  */
 @Entity
-@Table(name = "MENU",schema = "public")
+@Table(name = "MENU", schema = "public")
 public class Menu {
 
     private Long idMenu;
     private String txtName;
     private String txtLink;
     private String txtIcon;
+    private String txtView;
+    private String txtStateParent;
+    private String txtController;
+    private String txtTemplateUri;
     private Integer idParent;
+    private Boolean snActive;
 
     public Menu() {
     }
 
     public Menu(Long idWindow) {
         this.idMenu = idWindow;
+    }
+
+    public Menu(String txtName, String txtLink, String txtIcon, Integer idParent, Boolean snActive) {
+        this.txtName = txtName;
+        this.txtLink = txtLink;
+        this.txtIcon = txtIcon;
+        this.idParent = idParent;
+        this.snActive = snActive;
     }
 
     public Menu(Long idWindow, String txtName, String txtLink, String txtIcon, Integer idParent) {
@@ -44,7 +53,19 @@ public class Menu {
         this.txtIcon = txtIcon;
         this.idParent = idParent;
     }
-    
+
+    public Menu(String txtName, String txtLink, String txtIcon, String txtView, String txtStateParent, String txtController, String txtTemplateUri, Integer idParent, Boolean snActive) {
+        this.txtName = txtName;
+        this.txtLink = txtLink;
+        this.txtIcon = txtIcon;
+        this.txtView = txtView;
+        this.txtStateParent = txtStateParent;
+        this.txtController = txtController;
+        this.txtTemplateUri = txtTemplateUri;
+        this.idParent = idParent;
+        this.snActive = snActive;
+    }
+
     @Id()
     @Column(name = "idMenu")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -55,7 +76,7 @@ public class Menu {
     public void setIdMenu(Long idMenu) {
         this.idMenu = idMenu;
     }
-    
+
     @Column(name = "txtName", length = 50)
     public String getTxtName() {
         return txtName;
@@ -64,7 +85,7 @@ public class Menu {
     public void setTxtName(String txtName) {
         this.txtName = txtName;
     }
-    
+
     @Column(name = "txtLink", length = 200)
     public String getTxtLink() {
         return txtLink;
@@ -73,7 +94,7 @@ public class Menu {
     public void setTxtLink(String txtLink) {
         this.txtLink = txtLink;
     }
-    
+
     @Column(name = "txtIcon")
     public String getTxtIcon() {
         return txtIcon;
@@ -82,7 +103,7 @@ public class Menu {
     public void setTxtIcon(String txtIcon) {
         this.txtIcon = txtIcon;
     }
-    
+
     @Column(name = "idParent")
     public Integer getIdParent() {
         return idParent;
@@ -91,6 +112,46 @@ public class Menu {
     public void setIdParent(Integer idParent) {
         this.idParent = idParent;
     }
-    
+
+    public String getTxtView() {
+        return txtView;
+    }
+
+    public void setTxtView(String txtView) {
+        this.txtView = txtView;
+    }
+
+    public String getTxtStateParent() {
+        return txtStateParent;
+    }
+
+    public void setTxtStateParent(String txtStateParent) {
+        this.txtStateParent = txtStateParent;
+    }
+
+    public String getTxtController() {
+        return txtController;
+    }
+
+    public void setTxtController(String txtController) {
+        this.txtController = txtController;
+    }
+
+    public String getTxtTemplateUri() {
+        return txtTemplateUri;
+    }
+
+    public void setTxtTemplateUri(String txtTemplateUri) {
+        this.txtTemplateUri = txtTemplateUri;
+    }
+
+    @Column(name = "snActive")
+    public Boolean getSnActive() {
+        return snActive;
+    }
+
+    public void setSnActive(Boolean snActive) {
+        this.snActive = snActive;
+    }
 
 }

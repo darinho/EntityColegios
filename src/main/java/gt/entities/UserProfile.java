@@ -14,7 +14,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -58,9 +57,8 @@ public class UserProfile implements Serializable {
         this.idUserProfile = idUserProfile;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idProfile", referencedColumnName = "idProfile", nullable = false)
-    @Cascade(CascadeType.ALL)
     public Profile getProfile() {
         return profile;
     }
@@ -69,9 +67,8 @@ public class UserProfile implements Serializable {
         this.profile = profile;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idUser", referencedColumnName = "idUser", nullable = false)
-    @Cascade(CascadeType.ALL)
     public User getUser() {
         return user;
     }
@@ -80,7 +77,7 @@ public class UserProfile implements Serializable {
         this.user = user;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idLicence", nullable = false)
     public Licences getLicence() {
         return licence;
