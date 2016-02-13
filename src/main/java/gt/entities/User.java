@@ -5,6 +5,10 @@
  */
 package gt.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -69,10 +73,12 @@ public class User implements Serializable {
     }
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     public List<UserProfile> getUserProfiles() {
         return userProfiles;
     }
 
+    @JsonProperty 
     public void setUserProfiles(List<UserProfile> userProfiles) {
         this.userProfiles = userProfiles;
     }

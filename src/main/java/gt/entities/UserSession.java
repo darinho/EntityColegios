@@ -28,7 +28,7 @@ public class UserSession implements Serializable {
 
     private Long idUserSession;
     private User user;
-    private int idUser;
+    private Long idUser;
     private String token;
     private Date startDate;
     private Date endDate;
@@ -45,9 +45,9 @@ public class UserSession implements Serializable {
         this.user = user;
     }
 
-    public UserSession(Long idUserSession, User user, String token, Date startDate, Date endDate) {
+    public UserSession(Long idUserSession, Long idUser, String token, Date startDate, Date endDate) {
         this.idUserSession = idUserSession;
-        this.user = user;
+        this.idUser = idUser;
         this.token = token;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -64,7 +64,7 @@ public class UserSession implements Serializable {
         this.idUserSession = idUserSession;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idUser", referencedColumnName = "idUser", nullable = false, insertable = false, updatable = false)
     public User getUser() {
         return user;
@@ -75,11 +75,11 @@ public class UserSession implements Serializable {
     }
 
     @Column(name = "idUser", nullable = false)
-    public int getIdUser() {
+    public Long getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(Long idUser) {
         this.idUser = idUser;
     }
 
