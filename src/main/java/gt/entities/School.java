@@ -6,6 +6,8 @@
 package gt.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -30,7 +33,7 @@ public class School implements Serializable {
     private String nit;
     private Address address;
     private Boolean snActive;
-    //private List<Phone> phones = new ArrayList<>();
+//    private List<Phone> phones = new ArrayList<>();
 
     public School() {
     }
@@ -89,6 +92,7 @@ public class School implements Serializable {
 //    public void setPhones(List<Phone> phones) {
 //        this.phones = phones;
 //    }
+
     @Column(name = "snActive", nullable = false)
     public Boolean getSnActive() {
         return snActive;

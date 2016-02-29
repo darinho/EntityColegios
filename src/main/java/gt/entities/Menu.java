@@ -28,7 +28,7 @@ public class Menu {
     private String txtStateParent;
     private String txtController;
     private String txtTemplateUri;
-    private Integer idParent;
+    private Long idParent;
     private Boolean snActive;
 
     public Menu() {
@@ -38,7 +38,7 @@ public class Menu {
         this.idMenu = idWindow;
     }
 
-    public Menu(String txtName, String txtLink, String txtIcon, Integer idParent, Boolean snActive) {
+    public Menu(String txtName, String txtLink, String txtIcon, Long idParent, Boolean snActive) {
         this.txtName = txtName;
         this.txtLink = txtLink;
         this.txtIcon = txtIcon;
@@ -46,7 +46,7 @@ public class Menu {
         this.snActive = snActive;
     }
 
-    public Menu(Long idWindow, String txtName, String txtLink, String txtIcon, Integer idParent) {
+    public Menu(Long idWindow, String txtName, String txtLink, String txtIcon, Long idParent) {
         this.idMenu = idWindow;
         this.txtName = txtName;
         this.txtLink = txtLink;
@@ -54,7 +54,7 @@ public class Menu {
         this.idParent = idParent;
     }
 
-    public Menu(String txtName, String txtLink, String txtIcon, String txtView, String txtStateParent, String txtController, String txtTemplateUri, Integer idParent, Boolean snActive) {
+    public Menu(String txtName, String txtLink, String txtIcon, String txtView, String txtStateParent, String txtController, String txtTemplateUri, Long idParent, Boolean snActive) {
         this.txtName = txtName;
         this.txtLink = txtLink;
         this.txtIcon = txtIcon;
@@ -105,11 +105,11 @@ public class Menu {
     }
 
     @Column(name = "idParent")
-    public Integer getIdParent() {
+    public Long getIdParent() {
         return idParent;
     }
 
-    public void setIdParent(Integer idParent) {
+    public void setIdParent(Long idParent) {
         this.idParent = idParent;
     }
 

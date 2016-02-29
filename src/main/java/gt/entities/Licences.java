@@ -29,7 +29,7 @@ public class Licences {
     private long id;
     private String txtLicence;
     private Date dates;
-    private LicenceType licenceType;
+    private Profile profile;
     private Status status;
     private School school;
     private boolean snActive;
@@ -41,11 +41,11 @@ public class Licences {
         this.id = id;
     }
 
-    public Licences(long id, String txtLicence, Date date, LicenceType licenceType, School school) {
+    public Licences(long id, String txtLicence, Date date, Profile profile, School school) {
         this.id = id;
         this.txtLicence = txtLicence;
         this.dates = date;
-        this.licenceType = licenceType;
+        this.profile = profile;
         this.school = school;
     }
 
@@ -81,12 +81,12 @@ public class Licences {
 
     @ManyToOne
     @JoinColumn(name = "idLicenceType", nullable = false)
-    public LicenceType getLicenceType() {
-        return licenceType;
+    public Profile getProfile() {
+        return profile;
     }
 
-    public void setLicenceType(LicenceType licenceType) {
-        this.licenceType = licenceType;
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 
     @Enumerated(EnumType.ORDINAL)

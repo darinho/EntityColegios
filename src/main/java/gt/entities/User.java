@@ -5,9 +5,7 @@
  */
 package gt.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.Date;
@@ -42,6 +40,7 @@ public class User implements Serializable {
     private Date lastDatePwd;
     private Boolean snChangePwd;
     private Boolean snActive;
+    private String txtImageURI;
 
     public User() {
     }
@@ -78,7 +77,7 @@ public class User implements Serializable {
         return userProfiles;
     }
 
-    @JsonProperty 
+    @JsonProperty
     public void setUserProfiles(List<UserProfile> userProfiles) {
         this.userProfiles = userProfiles;
     }
@@ -90,6 +89,15 @@ public class User implements Serializable {
 
     public void setTxtPwd(String txtPwd) {
         this.txtPwd = txtPwd;
+    }
+
+    @Column(name = "txtImageURI")
+    public String getTxtImageURI() {
+        return txtImageURI;
+    }
+
+    public void setTxtImageURI(String txtImageURI) {
+        this.txtImageURI = txtImageURI;
     }
 
     @Column(name = "txtUser", nullable = false, unique = true)

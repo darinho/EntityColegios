@@ -17,36 +17,33 @@ import javax.persistence.Table;
  * @author dario.calderon
  */
 @Entity
-@Table(name = "LICENCE_TYPE")
-public class LicenceType {
+@Table(name = "GROUP")
+public class Group {
 
-    private long id;
+    private long idGroup;
     private String txtDescription;
-    private boolean snActive;
+    private Boolean automatic;
 
-    public LicenceType() {
+    public Group() {
     }
 
-    public LicenceType(long id) {
-        this.id = id;
-    }
-
-    public LicenceType(long id, String txtDescription) {
-        this.id = id;
+    public Group(long idGroup, String txtDescription) {
+        this.idGroup = idGroup;
         this.txtDescription = txtDescription;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", unique = true, nullable = false)
-    public long getId() {
-        return id;
+    @Column(name = "idGroup", unique = true, nullable = false)
+    public long getIdGroup() {
+        return idGroup;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setIdGroup(long idGroup) { 
+        this.idGroup = idGroup;
     }
 
+    @Column(name = "txtDescription", length = 100)
     public String getTxtDescription() {
         return txtDescription;
     }
@@ -55,13 +52,13 @@ public class LicenceType {
         this.txtDescription = txtDescription;
     }
 
-    @Column(name = "snActive")
-    public boolean isSnActive() {
-        return snActive;
+    @Column(name = "automatic")
+    public Boolean getAutomatic() {
+        return automatic;
     }
 
-    public void setSnActive(boolean snActive) {
-        this.snActive = snActive;
+    public void setAutomatic(Boolean automatic) {
+        this.automatic = automatic;
     }
 
 }
